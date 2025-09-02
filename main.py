@@ -1,7 +1,7 @@
 # main.py
 from fastapi import FastAPI, HTTPException, status
 from pydantic import BaseModel
-from typing import Optional, Dict
+from typing import Optional, Dict, Any  
 
 # Pydantic 모델 정의
 class Item(BaseModel):
@@ -31,7 +31,7 @@ async def create_item(item: Item):
     return {"item_id": new_item_id, **item.dict()}
 
 # 모든 아이템 조회 (Read All)
-@app.get("/items/", response_model=list) # 응답 모델을 리스트로 명시
+@app.get("/items/", response_model=list[Dict[str, Any]]) # 응답 모델을 리스트로 명시
 async def read_all_items(skip: int = 0, limit: int = 10):
     all_items = [
         {"item_id": item_id, **item.dict()}
