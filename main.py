@@ -20,7 +20,7 @@ fake_items_db: Dict[int, Item] = {}
 # 루트 경로
 @app.get("/")
 def read_root():
-    return {"Hello": "Welcome to the Simple Item API!"}
+    return {"How are you?": "Welcome to the Simple Item API!"}
 
 # 아이템 생성 (Create)
 @app.post("/items/", response_model=Item, status_code=status.HTTP_201_CREATED)
