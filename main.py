@@ -1,7 +1,7 @@
 # main.py
 from fastapi import FastAPI, HTTPException, status
 from pydantic import BaseModel
-from typing import Optional, Dict, Any  
+from typing import Optional, Dict, Any
 
 # Pydantic 모델 정의
 class Item(BaseModel):
